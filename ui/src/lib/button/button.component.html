@@ -1,0 +1,173 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet"
+        crossorigin="anonymous" />
+</head>
+<!-- Botón de texto - Variante Contenido -->
+
+<button type="button" *ngIf="buttonStyle === 'Contents'" class="btn-govco fill-btn-govco"
+    style="width: 184px; height: 42px">
+    {{ text }}
+</button>
+
+<button [disabled]="!enabled" type="button" *ngIf="buttonStyle === 'Enabled'" class="btn-govco fill-btn-govco"
+    style="width: 184px; height: 42px">
+    {{ text }}
+</button>
+
+<button type="button" *ngIf="buttonStyle === 'ContentsSmall'" class="btn-govco fill-btn-govco"
+    style="width: 165px; height: 42px">
+    {{ text }}
+</button>
+
+<button type="button" *ngIf="buttonStyle === 'ContentsLarge'" class="btn-govco fill-btn-govco"
+    style="width: 200px; height: 42px">
+    {{ text }}
+</button>
+
+<!-- Botón de texto - Variante Contorno -->
+<button type="button" *ngIf="buttonStyle === 'Outline'" class="btn-govco outline-btn-govco"
+    style="width: 165px; height: 42px">
+    {{ text }}
+</button>
+<!-- Botón de texto grande - Variante Contorno -->
+<button type="button" *ngIf="buttonStyle === 'OutlineLarge'" class="btn-govco outline-btn-govco"
+    style="width: 200px; height: 42px">
+    {{ text }}
+</button>
+
+<!-- Botón de texto - Variante Contenido invertido -->
+<button type="button" *ngIf="buttonStyle === 'InvertedContents'" class="btn-govco fill-secundary-btn-govco"
+    style="width: 165px; height: 42px">
+    {{ text }}
+</button>
+
+<!-- Botón de texto - Variante Contorno invertido -->
+<button type="button" *ngIf="buttonStyle === 'InvertedOutline'" class="btn-govco outline-secundary-btn-govco"
+    style="width: 165px; height: 42px">
+    {{ text }}
+</button>
+
+
+<!-- Botón simbólico - Variante Contenido -->
+<button type="button" *ngIf="buttonStyle === 'ContentsArrowright'"
+    class="btn-govco fill-btn-govco symbol-btn-govco right-arrow-btn-govco" style="width: 42px; height: 42px"></button>
+<button type="button" *ngIf="buttonStyle === 'ContentsArrowleft'"
+    class="btn-govco fill-btn-govco symbol-btn-govco left-arrow-btn-govco" style="width: 42px; height: 42px"></button>
+
+<!-- Botón simbólico - Variante Contorno -->
+<button type="button" *ngIf="buttonStyle === 'OutlineArrowright'"
+    class="btn-govco outline-btn-govco symbol-btn-govco right-arrow-btn-govco"
+    style="width: 42px; height: 42px"></button>
+<button type="button" *ngIf="buttonStyle === 'OutlineArrowleft'"
+    class="btn-govco outline-btn-govco symbol-btn-govco left-arrow-btn-govco"
+    style="width: 42px; height: 42px"></button>
+
+<!-- Botón simbólico - Variante Contenido invertido -->
+<button type="button" *ngIf="buttonStyle === 'InvertedContentsArrowright'"
+    class="btn-govco fill-secundary-btn-govco symbol-btn-govco right-arrow-btn-govco"
+    style="width: 42px; height: 42px"></button>
+<button type="button" *ngIf="buttonStyle === 'InvertedContentsArrowleft'"
+    class="btn-govco fill-secundary-btn-govco symbol-btn-govco left-arrow-btn-govco"
+    style="width: 42px; height: 42px"></button>
+
+<!-- Botón mixto - Variante Contorno invertido -->
+<button type="button" *ngIf="buttonStyle === 'InvertedOutlineArrowright'"
+    class="btn-govco outline-secundary-btn-govco symbol-btn-govco right-arrow-btn-govco"
+    style="width: 42px; height: 42px"></button>
+<button type="button" *ngIf="buttonStyle === 'InvertedOutlineArrowleft'"
+    class="btn-govco outline-secundary-btn-govco symbol-btn-govco left-arrow-btn-govco"
+    style="width: 42px; height: 42px"></button>
+
+
+<!-- Botón mixto - Variante Contenido -->
+<button type="button" *ngIf="buttonStyle === 'MixContentsright'"
+    class="btn-govco fill-btn-govco symbol-btn-govco mixed-btn-govco right-arrow-btn-govco" icon-position="right"
+    style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'MixContentsleft'"
+    class="btn-govco fill-btn-govco symbol-btn-govco mixed-btn-govco left-arrow-btn-govco" icon-position="left"
+    style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+
+<!-- Botón mixto - Variante Contorno -->
+<button type="button" *ngIf="buttonStyle === 'MixOutlineright'"
+    class="btn-govco outline-btn-govco symbol-btn-govco mixed-btn-govco right-arrow-btn-govco" icon-position="right"
+    style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'MixOutlineleft'"
+    class="btn-govco outline-btn-govco symbol-btn-govco mixed-btn-govco left-arrow-btn-govco" icon-position="left"
+    style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+
+<!-- Botón mixto - Variante Textual -->
+<button type="button" *ngIf="buttonStyle === 'MixTextualright'"
+    class="btn-govco no-fill-btn-govco symbol-btn-govco mixed-btn-govco right-arrow-btn-govco" icon-position="right"
+    style="width: 165px; height: 42px">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'MixTextualleft'"
+    class="btn-govco no-fill-btn-govco symbol-btn-govco mixed-btn-govco left-arrow-btn-govco" icon-position="left"
+    style="width: 165px; height: 42px">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+
+<!-- Botón mixto - Variante Contenido invertido -->
+<button type="button" *ngIf="buttonStyle === 'MixInvertedContentsright'"
+    class="btn-govco fill-secundary-btn-govco symbol-btn-govco mixed-btn-govco right-arrow-btn-govco"
+    icon-position="right" style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'MixInvertedContentsleft'"
+    class="btn-govco fill-secundary-btn-govco symbol-btn-govco mixed-btn-govco left-arrow-btn-govco"
+    icon-position="left" style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+
+<!-- Botón mixto - Variante Contorno invertido -->
+<button type="button" *ngIf="buttonStyle === 'MixInvertedOutlineright'"
+    class="btn-govco outline-secundary-btn-govco symbol-btn-govco mixed-btn-govco right-arrow-btn-govco"
+    icon-position="right" style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'MixInvertedOutlineleft'"
+    class="btn-govco outline-secundary-btn-govco symbol-btn-govco mixed-btn-govco left-arrow-btn-govco"
+    icon-position="left" style="width: 165px; height: 42px">
+    <span>{{ text }}</span>
+</button>
+
+<!-- Botón mixto - Variante Textual invertido -->
+<button type="button" *ngIf="buttonStyle === 'MixInvertedTextualright'"
+    class="btn-govco no-fill-btn-govco symbol-btn-govco fill-mixed-btn-govco right-arrow-btn-govco"
+    icon-position="right" style="width: 165px; height: 42px">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'MixInvertedTextualleft'"
+    class="btn-govco no-fill-btn-govco symbol-btn-govco fill-mixed-btn-govco left-arrow-btn-govco" icon-position="left"
+    style="width: 165px; height: 42px">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'Link'" class="btn btn-link" icon-position="left"
+    style="height: 42px; font-size: 14px;">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'Link-No-Margin'" class="btn btn-link" icon-position="left"
+    style="height: 42px; font-size: 14px; padding: 1px !important;">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'Link-No-Margin-noaction'" class="btn-not-action btn btn-link" icon-position="left"
+    style="height: 42px; font-size: 14px; padding: 1px !important;">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'Link-Big-Row'" class="btn-big btn btn-link" icon-position="left"
+    style="height: 30px; font-size: 14px; padding: 1px !important;">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>
+<button type="button" *ngIf="buttonStyle === 'Link-Row'" class="btn-big btn btn-link" icon-position="left"
+    style="height: 30px; width: min-content; font-size: 14px; padding: 1px !important;">
+    <span class="sub-btn-govco">{{ text }}</span>
+</button>

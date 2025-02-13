@@ -1,0 +1,12 @@
+.alignRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.alignColumn {
+    display: flex;
+    flex-direction: column;
+}
+.espaciador {
+    margin-right: 50px;
+}

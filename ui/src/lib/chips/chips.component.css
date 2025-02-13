@@ -1,0 +1,124 @@
+  .etiqueta-govco {
+    background-color: #F2F2F2 !important;
+    border-radius: 14px !important;
+    color: #000000 !important;
+    text-align: left;
+    font-size: 14px;
+    font-family: WorkSans-Medium !important;
+    width: 150px;
+    height: 28px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .etiqueta-govco.completado {
+    background-color: #CDE6DF !important;
+    border-radius: 14px;
+    color: #0D684B !important;
+  }
+  
+  .etiqueta-govco.error {
+    background-color: #EECDD2 !important;
+    border-radius:14px;
+    color: #B30937 !important;
+  }
+  
+  .etiqueta-govco.pendiente {
+    background-color: #FFEECC !important;
+    border-radius: 14px;
+    color: #8B5D13 !important;
+  }
+  
+  
+  
+  
+  button.button-close{
+    font-family: "govco-font";
+    content: "\eb72";
+    color: #004884;
+    background-color: transparent;
+    border:none; 
+    outline:none;
+  }
+  
+  
+  
+  .button-close::before{
+    font-family: "govco-font";
+    content: "\eb72";
+    color: #004884;
+    border:none; 
+    outline:none;
+    background-color: transparent;
+  }
+  
+  .button-close:hover{
+    color: #E6EFFD!important;
+  }
+  
+  .etiqueta-govco-filtro-angular {
+    background-color: #E6EFFD !important;
+    border: solid #E6EFFD !important;
+    border-radius: 20px !important;
+    color: #004884 !important;
+    text-align: left;
+    font-size: 14px;
+    font-family: WorkSans-Medium !important;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    margin: 5px;
+  }
+  
+  
+  .campo-etiqueta-govco {
+    width: 200px;
+    height: 40px;
+    background: white;
+    display:block
+  }
+  
+  .etiqueta-govco-filtro-angular:hover{
+    background-color: #3366CC !important;
+    border:solid #3366CC !important;
+    border-radius: 20px;
+    color: #fff !important;
+    text-align: left;
+    font-size: 14px;
+    font-family: WorkSans-Medium !important;
+    width: auto;
+    height: auto;
+
+  }
+  
+  
+  
+  .etiqueta-govco-filtro-angular:focus {
+    background-color: #3366CC !important;
+    border-radius: 20px;
+    color: #fff !important;
+    text-align: left;
+    font-size: 14px;
+    font-family: WorkSans-Medium !important;
+    width: auto;
+    height: auto;
+    outline: 2px solid #000 !important;
+    border: 2px solid #fff !important;
+    box-shadow: none !important;
+  
+  }
+  
+  .etiqueta-govco-filtro-angular:hover .button-close::before{
+    color: #fff !important;
+  }
+  
+  .etiqueta-govco-filtro-angular:focus .button-close::before{
+    color: #fff !important;
+  }
+  
+  .etiqueta-govco-filtro-angular:focus::after {
+    font-family: "govco-font";
+    color: #fff;
+  }

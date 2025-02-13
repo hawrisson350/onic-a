@@ -1,0 +1,116 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+<!-- (click)="closeModal('Close', modalItem)" -->
+<div id="modal">
+    <div class="tab-pane" id="confirmation" *ngIf="modalType==='confirmation'">
+        <div class="modal-container-govco" id="exampleModalConfirmacion" tabindex="-1" data-bs-backdrop="false"
+            data-bs-keyboard="false" aria-labelledby="exampleModalConfirmacion" aria-hidden="true" aria-hidden="true"
+            role="dialog" *ngIf="modalItem" >
+            <div class="modal-dialog modal-dialog-govco">
+                <div class="modal-content modal-content-govco">
+                    <div class="modal-header modal-header-govco">
+                        <a href="javascript:void(0)" role="button" data-bs-dismiss="modal" class="close-btn-modal"
+                            aria-label="Close" aria-expanded="false" (click)="closeModal('Close', modalItem, '')">
+                            <span class="modal-close-govco govco-times"></span>
+                        </a>
+                    </div>
+                    <div  class="modal-body modal-body-govco">
+                        <h3 class="modal-title-govco">{{modalItem.title}}</h3>
+                        <h6 class="modal-subtitle-govco">{{modalItem.subTitle}}</h6>
+                        <div *ngIf="visible">
+                            <label>{{subtitle}}</label>
+                        </div>
+                        <div style="border: 1px solid darkgray;border-radius: 5px;" *ngIf="!visible">
+                            <div (scroll)="checkScroll($event)" class="scroll-dark-govco" style="padding: 10px;" [innerHTML]="htmlFormat">                                
+                            </div>                          
+                        </div>
+                        <textarea *ngIf="visible" type="text" [(ngModel)]="contenido" (keypress)="onKeyPress($event)" (paste)="onPaste($event)" class="scroll-dark-govco" style="padding: 10px;width: 100%;">
+                        </textarea>
+                        <div [hidden]="contenido.length>=20 && contenido.length<=500" class="error-texto-govco" *ngIf="downText.length > 0 ">
+                            <span> {{downText}} </span>
+                        </div>
+                    </div>
+                    <p class="modal-text-govco modal-text-center-govco">
+                        <ng-content></ng-content>
+                    </p>
+                    <div class="modal-footer-govco modal-footer-alerts-govco" style="align-self: center;">
+                        <div class="modal-buttons-govco">
+                            <button *ngIf="modalItem.buttonLeft!==''" type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                {{modalItem.buttonLeft}}
+                            </button>
+                            &nbsp;&nbsp;&nbsp;
+                            <button type="button" *ngIf="!visible && modalItem.buttonRight !== '' && !ScrollBlock"  class="btn btn-primary btn-modal-govco " 
+                                (click)="closeModal('Right', modalItem, modalItem.buttonRight, contenido)">
+                                {{modalItem.buttonRight}}
+                            </button>
+                            <button [disabled]="!scrollFin" type="button" *ngIf="!visible && modalItem.buttonRight !== '' && ScrollBlock" style="width: 184px; height: 42px"  class="btn-govco fill-btn-govco " 
+                                (click)="closeModal('Right', modalItem, modalItem.buttonRight, contenido)">
+                                {{modalItem.buttonRight}}
+                            </button>
+                            <button type="button" class="btn btn-primary btn-modal-govco " *ngIf="visible" [disabled]="contenido.length< 20 || contenido.length > 500"
+                                (click)="closeModal('Right', modalItem, modalItem.buttonRight, contenido)">
+                                {{modalItem.buttonRight}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tab-pane" id="cargarDoc" *ngIf="modalType==='cargarDoc'">
+        <div class="modal-container-govco" id="exampleModalConfirmacion" tabindex="-1" data-bs-backdrop="false"
+            data-bs-keyboard="false" aria-labelledby="exampleModalConfirmacion" aria-hidden="true" aria-hidden="true"
+            role="dialog" *ngIf="modalItemDoc" >
+            <div class="modal-dialog modal-dialog-govco">
+                <div  class="col-md-12 col-12 modal-content modal-content-govco-doc">
+                    <div class="modal-header modal-header-govco">
+                        <a href="javascript:void(0)" role="button" data-bs-dismiss="modal" class="close-btn-modal"
+                            aria-label="Close" aria-expanded="false" (click)="closeModalDoc('Close','',modalItemDoc)">
+                            <span class="modal-close-govco govco-times"></span>
+                        </a>
+                    </div>
+                    <div  class="modal-body modal-body-govco">
+                        <h3 class="modal-title-govco">{{modalItemDoc.title}}</h3>
+                        <h6 class="modal-subtitle-govco">{{modalItemDoc.subTitle}}</h6>
+                        <div class="col-md-8 col-12" style="padding-top: 2.0rem; padding-bottom: 0.5rem;">
+                            <!-- <terra-input-file #emitFile 
+                                [uploadFileConfig]="cargaDocConfig" (emitFile)="docAssignFile($event)"
+                                (eventDelete)="docAssignFileDelete($event)">
+                            </terra-input-file> -->
+                        </div>
+                        <div >
+                            <label>{{subtitle}}</label>
+                        </div>
+                        <textarea type="text" [(ngModel)]="contenido" (keypress)="onKeyPress($event)" (paste)="onPaste($event)" class="scroll-dark-govco-doc" style="padding: 10px;width: 100%;">
+                        </textarea>
+                        <div [hidden]="contenido.length>=20 && contenido.length<=500" class="error-texto-govco" *ngIf="downText.length > 0 ">
+                            <span> {{downText}} </span>
+                        </div>
+                    </div>
+                    <p class="modal-text-govco modal-text-center-govco">
+                        <ng-content></ng-content>
+                    </p>
+                    <div class="modal-footer-govco modal-footer-alerts-govco" style="align-self: center;">
+                        <div class="modal-buttons-govco">
+                            <button *ngIf="modalItemDoc.buttonLeft!==''" type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                (click)="closeModalDoc('Left','',modalItemDoc)">
+                                {{modalItemDoc.buttonLeft}}
+                            </button>
+                            &nbsp;&nbsp;&nbsp;
+                            <button type="button" class="btn btn-primary btn-modal-govco " [disabled]="contenido.length< 20 || contenido.length > 500"
+                                (click)="closeModalDoc('Right',contenido,modalItemDoc)">
+                                {{modalItemDoc.buttonRight}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

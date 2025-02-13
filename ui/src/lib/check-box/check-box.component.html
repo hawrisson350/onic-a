@@ -1,0 +1,22 @@
+<div [ngClass]="{'alignRow': arrayCheckBoxes.align === 'row', 'alignColumn': arrayCheckBoxes.align === 'column'}">
+  <div class="checkbox-seleccion-govco col-md-12 mt-2 espaciador" *ngFor="let row of arrayCheckBoxes?.data; let i = index">
+    <div class="checkbox-container">
+      <input type="checkbox" id="{{i}}" name="{{i}}" value="{{row.value}}" [disabled]="row.disabled"
+             (change)="toggleCheck(row)" [checked]="row.checked">
+      <label for="{{i}}">{{row.text}}</label>
+    </div>
+    <ul *ngIf="row.checked && row.complement" class="list-group list-group-flush mt-2 complement-container">
+      <li *ngFor="let complementItem of row.complement; let first = first" class="list-group-item text3-tipografia-govco text-secondary complement-item">
+        <ng-container *ngIf="first">
+          <strong>S&iacute;:</strong> {{complementItem.text}}
+        </ng-container>
+        <ng-container *ngIf="!first">
+          {{complementItem.text}}
+        </ng-container>
+      </li>
+      <li class="list-group-item text3-tipografia-govco text-secondary complement-item">
+        <strong>No:</strong> No se adjunta ningún documento
+      </li>
+    </ul>
+  </div>
+</div>

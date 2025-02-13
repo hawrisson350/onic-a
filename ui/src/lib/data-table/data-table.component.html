@@ -1,0 +1,65 @@
+<div class="table-responsive" [ngClass]="{'table-responsive scroll-table-govco' : scrollBar}">
+    <table datatable [class]="table.classTable" [id]="table.id" [attr.aria-describedby]="table.id">
+        <thead [class]="table.classThead">
+            <tr>
+                <th *ngFor="let th of table.columns" (click)="returnSelectedColumn(th)" scope="col"
+                    [ngClass]="{'positionLeft':th.align ==='left','positionRigth':th.align ==='right','positionCenter':th.align ==='center', 'widthColum1' : th.align === 'width1','widthColum2' : th.align === 'width2','widthColum3' : th.align === 'width3'}">
+                    <ng-container *ngIf="th.type !== 'check'">{{th.value}}</ng-container>
+                    <ng-container *ngIf="th.type === 'check'">
+                        {{th.value}}
+                    </ng-container>
+                </th>
+            </tr>
+        </thead>
+        <tbody [class]="table.classTbody">
+            <tr *ngFor="let row of rows;  let i = index" [ngClass]="{'positionCenter': row.align === 'center1'}">
+                <td *ngFor="let column of table.columns;  let j = index"
+                    [ngClass]="{'containerbuttonsFlex' : documentTable === true, 'containerbuttons' : column.type === 'button', 'positionCenterDefault' : column.align === '', 'positionCenter' : column.align === 'center', 'positionLeft':column.align ==='left', 'positionRight':column.align ==='right'}">
+                    <ng-container *ngIf="column.type === 'string'">{{row[column.def]}}</ng-container>
+                    <ng-container *ngIf="column.type === 'number'">{{row[column.def] | number}}</ng-container>
+                    <ng-container *ngIf="column.type === 'date'">{{row[column.def] | date:"longDate"}}</ng-container>
+                    <ng-container *ngIf="column.type === 'check'">
+                        <input class="check-basico" type="checkbox" *ngIf="row.edit"
+                            [checked]="row.options[j - 1].value" [value]="row" [id]="i" (click)="returnRow(row, column)"
+                            style="float: none !important;">
+                        <input class="check-basico" type="checkbox" *ngIf="!row.edit" [value]="row" [id]="i"
+                            (click)="returnRow(row, column)" style="float: none !important;">
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'state'">
+                        <div
+                            [ngClass]="{'containerStateError' : row.state === 'Finalizado con errores', 'containerStateValid' : row.state === 'Finalizado correctamente'}">
+                            {{row.state}}</div>
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'stateOpacity'">
+                        <div *ngIf="documentTable === true"><div [ngClass]="{'containerStateError' : row[column.def] === 'Deshabilitado' ||  row[column.def] === 'Inactivo', 'containerStateValid' : row[column.def] === 'Habilitado'||  row[column.def] === 'Exitoso' ||  row[column.def] === 'Activo'}"
+                          class="containerStateValid positionLeft">{{row[column.def]}}</div>
+                        </div>
+                        <div *ngIf="documentTable === false"><div [ngClass]="{'containerStateError' : row[column.def] === 'Deshabilitado' ||  row[column.def] === 'Inactivo', 'containerStateValid' : row[column.def] === 'Habilitado'||  row[column.def] === 'Exitoso' ||  row[column.def] === 'Activo'}"
+                          class="containerStateValid positionCenterTag">{{row[column.def]}}</div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'button'">
+                        <ng-container *ngFor="let buttons of row[column.def]; let i = index">
+                            <!-- <terra-button (click)="optionReturn(buttons, row?.idCargue, row?.state, row?.numeroPeriodo, row?.idUsuario)" *ngIf="buttons.disabled"
+                                [ngClass]="{'buttonsCenter' : buttons.align === 'center'}"
+                                style="display: flex; font-size:10px;align-items: center;" text="{{buttons.text}}"
+                                buttonStyle="{{buttons.buttonStyle}}"></terra-button> -->
+                            <div *ngIf="row[column.def].length > 1 && i+1< row[column.def].length" class="separator">/
+                            </div>
+                        </ng-container>
+                    </ng-container>
+                    <ng-container *ngIf="column.type === 'button-row'">
+                        <ng-container *ngFor="let buttons of row[column.def]; let i = index">
+                            <!-- <terra-button (click)="optionReturn(buttons, row?.idCargue, row?.state, row?.numeroPeriodo, row?.idUsuario)" *ngIf="buttons.disabled"
+                                [ngClass]="{'buttonsCenter' : buttons.align === 'center', 'buttonsCenterRow' : buttons.align === 'centerRow'}"
+                                style="display: flex; font-size:10px;" text="{{buttons.text}}"
+                                buttonStyle="{{buttons.buttonStyle}}"></terra-button> -->
+                            <div *ngIf="row[column.def].length > 1 && i+1< row[column.def].length && buttons.align !== 'centerRow'"
+                                class="separator">/</div>
+                        </ng-container>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

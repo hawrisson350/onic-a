@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col scroll-light-govco" *ngIf="scrollStyle==='light'">
+        <ng-content select="[bodyLightScroll]"></ng-content>
+    </div>
+
+    <div class="col scroll-dark-govco" *ngIf="scrollStyle==='dark'">
+        <ng-content select="[bodyDarkScroll]"></ng-content>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="container-carga-de-archivo-govco">
+    <div class="loader-carga-de-archivo-govco">
+        <div class="all-input-carga-de-archivo-govco">
+            <input class="file-upload-gov-co" type="file" multiple #fileUpload [disabled]="disabledFile" (change)="onFileSelected($event)"/>
+            <label class="label-carga-de-archivo-govco" for="inputFile" [ngClass]="{'text-danger': error}">{{uploadFileConfig.label}}</label>
+            <label class="container-input-carga-de-archivo-govco" for="inputFile" tabindex="1">
+                <span class="button-file-carga-de-archivo-govco" 
+                    [ngClass]="{'button-file-carga-de-archivo-govco-disabled': disabledFile}" (click)="fileUpload.click()"
+                >
+                    Seleccionar archivo
+                </span>
+                <span class="file-name-carga-de-archivo-govco">{{fileName}}</span>
+            </label>
+            <span class="text-validation-carga-de-archivo-govco">{{messagge}}</span>
+        </div>
+        <div class="load-button-carga-de-archivo-gov-co">
+            <div class="load-carga-de-archivo-gov-co mb-2">
+                <div *ngIf="progress" class="spinner-indicador-de-carga-govco" 
+                    style="width: 32px; height: 32px; border-width: 6px;" role="status">
+                     <span class="visually-hidden">Cargando...</span>
+                </div>
+            </div>
+            <button class="button-loader-carga-de-archivo-govco mb-2" tabindex="2" [disabled]="disabled" (click)="uploadFile()">Subir archivo</button>
+        </div>
+    </div>
+    <hr *ngIf="files.length > 0 || error">
+    <div class="row">
+        <span *ngIf="error" class="text-validation-carga-de-archivo-govco text-danger">{{messaggeError}}</span>
+        <div *ngFor="let file of files; let i = index" class="col-md-4 p-0 info-main-gov-co" tabindex="i">
+            <div class="govco-file-alt w-25 d-flex- justify-content-center align-items-center"></div>
+            <div class="w-75 d-flex flex-column pt-2 pb-2 justify-content-around govco-file-info">
+                <span for="" class="fw-bolder file-name-gov-co">{{file.name}}</span>
+                <label for="" class="fw-bolder file-size-gov-co">{{file.size}}</label>
+            </div>
+            <div class="w-25 d-flex justify-content-center align-items-center govco-trash-alt" (click)="deleteFile(file.id)"></div>
+        </div>
+    </div>
+    <div class="load-button-carga-de-archivo-gov-co button-procesar-margin">
+        <div class="load-carga-de-archivo-gov-co mb-2">
+            <div *ngIf="progressUploaded || progressUploadedAux" class="spinner-indicador-de-carga-govco" 
+                style="width: 32px; height: 32px; border-width: 6px;" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+        </div>
+        <button *ngIf="files.length > 0" (click)="procesar()" type="button" class="button-loader-carga-de-archivo-govco mb-2" tabindex="2">
+            Procesar
+        </button>
+    </div>
+</div>

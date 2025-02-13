@@ -1,0 +1,33 @@
+<div *ngIf="basic">
+    <label for="lista-desplegables" class="label-desplegable-govco"
+      >{{ labelText }} <span aria-required="true"></span
+    ></label>
+    <div class="desplegable-govco">
+      <button
+      *ngIf="update === false"
+        type="button"
+        [ngClass]="!isRequired ? selectOption : selectOptionRequired"        
+        [disabled]="disabled"
+        (click)="seeList()" 
+      >
+        {{ title }}
+      </button>
+      <button
+      *ngIf="update === true "
+        type="button"
+        [ngClass]="!isRequired ? selectOption : selectOptionRequired"        
+        [disabled]="disabled"
+        (click)="seeList()"      
+      >
+        {{ value }}
+      </button>
+
+      <ul *ngIf="seelist" class="desplegable-items">
+        <li *ngFor="let item of lista" (click)="getVal(item)"  (keyup.enter)="getVal(item)" tabindex="0" > 
+          {{ item.text }}
+        </li>
+      </ul>
+    </div>
+    <span class="entradas-de-texto-govco info-entradas-de-texto-govco">{{note}}</span>
+  </div>
+

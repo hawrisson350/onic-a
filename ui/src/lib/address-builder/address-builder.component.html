@@ -1,0 +1,124 @@
+<div class="tab-pane" id="address">
+<div class="modal-container-govco" id="exampleModalConfirmacion" tabindex="-1" data-bs-backdrop="false"
+    data-bs-keyboard="false" aria-labelledby="exampleModalConfirmacion" aria-hidden="true" aria-hidden="true"
+    role="dialog">
+        <div class="modal-dialog modal-dialog-govco">
+            <div class="modal-content modal-content-govco">
+                <div class="modal-body modal-body-govco">
+                    <h3 class="text-start modal-title-govco confirmation-govco mt-3">Generar direcci&oacute;n</h3>                    
+                    <form [formGroup]="addressForm" class="row" (ngSubmit)="guardarDireccion()">
+                      <div class="row">                  
+                        <div class="entradas-de-texto-govco col-md-2">
+                          <label class="label-desplegable-govco" for="input-nombreCalleDireccion">Nomenclatura*: </label>
+                          <select name="nombreCalleDireccion" [ngClass]="{'invalid-required-field': addressForm.get('nombreCalleDireccion')?.invalid && addressForm.get('nombreCalleDireccion')?.touched}" class="form-select" id="input-nombreCalleDireccion" formControlName="nombreCalleDireccion" aria-invalid="false">
+                            <option value="" selected>Escoger</option>
+                            <ng-container *ngFor="let combo of nomenclaturasMasUsadas; let i = index">
+                              <option [value]="combo.abreviatura">{{combo.elemento}}</option>
+                            </ng-container>
+                          </select>                         
+                        </div>                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label for="input-numero-principal">Número*:</label>
+                          <input inputmode="numeric" [ngClass]="{'invalid-required-field': addressForm.get('numeroPrincipalDireccion')?.invalid && addressForm.get('numeroPrincipalDireccion')?.touched}" class="input-numero-principal "id="input-numero-principal" formControlName="numeroPrincipalDireccion" maxlength="4" autocomplete="off" placeholder="No." (keypress)="numberOnly($event)">
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label class="label-desplegable-govco" for="input-letra-principal">Letra: </label>
+                          <select name="letraPrincipalDireccion" class="form-select" id="input-letra-principal" formControlName="letraPrincipalDireccion" aria-invalid="false">
+                            <option value=""selected>Seleccione...</option>
+                            <ng-container *ngFor="let letra of letras; let i = index">
+                              <option [value]="letra">{{ letra }}</option>
+                            </ng-container>
+                          </select>
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label class="label-desplegable-govco" for="input-bis">Bis: </label>
+                          <select name="bisPrincipalDireccion" class="form-select" id="input-bis" formControlName="bisPrincipalDireccion" aria-invalid="false">
+                            <option value="" selected>Seleccione...</option>
+                            <option value="Bis">Bis</option>
+                          </select>
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label class="label-desplegable-govco" for="input-letra-principal2">Letra: </label>
+                          <select name="letraPrincipalDireccion2" class="form-select" id="input-letra-principal" formControlName="letraPrincipalDireccion2" aria-invalid="false">
+                            <option value="" selected>Seleccione...</option>
+                            <ng-container *ngFor="let letra of letras">
+                              <option [value]="letra">{{ letra }}</option>
+                            </ng-container>
+                          </select>
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label class="label-desplegable-govco" for="input-referencia-cardinal">Zona: </label>
+                          <select name="referenciaCardinalDireccion" class="form-select" id="input-referencia-cardinal" formControlName="referenciaCardinalDireccion" aria-invalid="false">
+                            <option value="" selected>Seleccione...</option>
+                            <ng-container *ngFor="let punto of referenciaCardinal">
+                              <option [value]="punto">{{ punto }}</option>
+                            </ng-container>
+                          </select>
+                        </div>
+                  
+                        <div class="text-center" style="width: 20px; padding-top: 52px">
+                          <label>#</label>
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label for="input-numeroSecundarioDireccionl">Número*:</label>
+                          <input inputmode="numeric" class="input-numeroSecundarioDireccion "id="input-numeroSecundarioDireccion" formControlName="numeroSecundarioDireccion" [ngClass]="{'invalid-required-field': addressForm.get('numeroSecundarioDireccion')?.invalid && addressForm.get('numeroSecundarioDireccion')?.touched}" maxlength="4" autocomplete="off" placeholder="No." (keypress)="numberOnly($event)">
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label class="label-desplegable-govco" for="input-letra-secundaria">Letra: </label>
+                          <select name="letraSecundariaDireccion" class="form-select" id="input-letra-secundaria" formControlName="letraSecundariaDireccion" aria-invalid="false">
+                            <option value="" selected>Seleccione...</option>
+                            <ng-container *ngFor="let letra of letras">
+                              <option [value]="letra">{{ letra }}</option>
+                            </ng-container>
+                          </select>
+                        </div>
+                  
+                        <div class="text-center" style="width: 20px; padding-top: 52px">
+                          <label>-</label>
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label for="input-numeroCasaDireccion">Número*:</label>
+                          <input inputmode="numeric" class="input-numeroCasaDireccion "id="input-numeroCasaDireccion" formControlName="numeroCasaDireccion" [ngClass]="{'invalid-required-field': addressForm.get('numeroCasaDireccion')?.invalid && addressForm.get('numeroCasaDireccion')?.touched}" maxlength="4" autocomplete="off" placeholder="No." (keypress)="numberOnly($event)">
+                        </div>
+                  
+                        <div class="entradas-de-texto-govco col-md-1">
+                          <label class="label-desplegable-govco" for="input-referencia-cardinal-secundario">Zona: </label>
+                          <select name="referenciaCardinalDireccionSecundario" class="form-select" id="input-referencia-cardinal-secundario" formControlName="referenciaCardinalDireccionSecundario" aria-invalid="false">
+                            <option value="" selected>Seleccione...</option>
+                            <ng-container *ngFor="let punto of referenciaCardinal">
+                              <option [value]="punto">{{ punto }}</option>
+                            </ng-container>
+                          </select>
+                        </div>
+                        <span  style="text-align: center;" *ngIf="addressForm.invalid && addressForm.touched" class="invalid-required-span" id="campoWarning-id" role="alert" aria-live="assertive">Ingrese todos los campos obligatorios*</span>
+                        <div class="entradas-de-texto-govco col-12 col-md-6">
+                          <div class="form-group w-100">
+                            <label for="input-complementoDireccion" id="label-complementoDireccion">Complemento:</label>
+                            <input type="text" class="input-complementoDireccion "id="input-complementoDireccion" formControlName="complementoDireccion" placeholder="Apto Torre Casa">
+                          </div>
+                        </div>
+                        <div class="entradas-de-texto-govco col-12 col-md-6">
+                          <div class="form-group w-100">
+                            <label for="input-direccionCod" id="label-direccionCod">Dirección generada*:</label>
+                            <input [value]="direccionCodificada" class="form-control" type="text" id="input-direccionCod" formControlName="direccionCod" placeholder="Dirección" readonly>
+                          </div>
+                        </div>
+                      </div>                                    
+                      <div class="d-flex justify-content-center mt-4 mb-4">
+                        <button type="button" (click)="cerrar()" class="btn btn-primary btn-modal-govco btn-contorno me-4" (click)="cerrar()">Cerrar</button>                  
+                        <button type="submit" class="btn btn-primary btn-modal-govco">Guardar</button>
+                      </div>                  
+                    </form>                  
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

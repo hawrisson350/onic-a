@@ -1,0 +1,21 @@
+.buttonUser:hover {
+    background-color: #004884 !important;
+    color: white;
+}
+
+.govco-user {
+    min-width: 1rem;
+    min-height: 1rem;
+    display: inline-block;
+    background-repeat: no-repeat;
+}
+
+.itemsUser {
+    width: 100%;
+    border: 0.15rem solid #004884 !important;
+}
+
+.items-value:hover {
+    color: #4B4B4B;
+    background-color: #e6effd;
+}

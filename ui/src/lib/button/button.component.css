@@ -1,0 +1,17 @@
+
+.btn-not-action{
+    color: darkgray !important;
+}
+.btn-big{
+    width: 200px;
+    margin: 0px;
+    font-size: 14px;
+    padding: 0px;
+    height: 0px;
+}
+
+button {
+    min-width: 140px;
+    margin-right: 1rem;
+ }
+ 

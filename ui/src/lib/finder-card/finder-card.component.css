@@ -1,0 +1,39 @@
+.search-govco .search-icon-search-govco{
+    background-color: #3366CC !important;
+    margin-left: 0px !important;
+}
+.aservice-item {
+    align-items: flex-start;
+    overflow-y: scroll;
+    height: 200px; width: 700px;
+
+}
+.service-body{
+    margin-left: 0.4rem;
+}
+
+.bar-search-govco{
+    margin: 0.5rem;
+    width: auto;
+}
+
+.search-govco{
+    background-color: white;
+    width: auto;
+    padding-top: 0.5rem ;
+    padding-bottom: 0.5rem ;
+    border-radius: 10px;
+    margin-left: 0px !important;
+}
+
+.custom-details-small-container{
+    align-items: flex-start;
+    --background-container: white;
+    --height-container: 150px;
+    --width-container: auto ;
+    --border-container: none;
+    --margin-container-left: 30px;
+    --margin-container-right: 30px;
+    --padding-container-top: 0px !important;
+  }
+

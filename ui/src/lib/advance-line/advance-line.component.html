@@ -1,0 +1,54 @@
+<div id="items-2-linea-avance" *ngIf="actvarLineas2 === true">
+    <div class="linea-avance-govco h-linea-avance-govco" id="lineaAvance1">
+        <div class="progress">
+            <div class="progress-bar" #progressBar role="progressbar" [ngStyle]="{width: progress + '%' }"
+                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+        <div class="items-header-linea-avance-govco">
+            <div class="header-linea-avance-govco"
+              [ngClass]="{'active-linea-avance-govco': progress >= 0 && progress <= 50 }">
+                <div ngClass="indicator-linea-avance-govco" data-la-target="#itemLineaAvance11" percentage="0">1</div>
+                <span class="title-linea-avance-govco">Consulta</span>
+            </div>
+            <div class="header-linea-avance-govco"
+              [ngClass]="{'active-linea-avance-govco': progress > 50 && progress <= 100 }">
+                <div class="indicator-linea-avance-govco" data-la-target="#itemLineaAvance12" percentage="100">2</div>
+                <span class="title-linea-avance-govco">Respuesta</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="items-4-linea-avance" *ngIf="actvarLineas4 === true">
+  <div class="linea-avance-govco h-linea-avance-govco" id="lineaAvance1">
+      <div class="progress">
+          <div class="progress-bar" #progressBar role="progressbar" [ngStyle]="{width: progress + '%' }"
+              aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+          </div>
+      </div>
+      <div class="items-header-linea-avance-govco">
+          <div class="header-linea-avance-govco"
+            [ngClass]="{'active-linea-avance-govco': progress >= 0 && progress < 25 }">
+              <div ngClass="indicator-linea-avance-govco" data-la-target="#itemLineaAvance11" percentage="0">1</div>
+              <span class="title-linea-avance-govco">Inicio</span>
+          </div>
+          <div class="header-linea-avance-govco"
+            [ngClass]="{'active-linea-avance-govco': progress >= 25 && progress < 50 }">
+              <div class="indicator-linea-avance-govco" data-la-target="#itemLineaAvance12" percentage="100">2</div>
+              <span class="title-linea-avance-govco">Hago mi solicitud</span>
+          </div>
+          <div class="header-linea-avance-govco"
+            [ngClass]="{'active-linea-avance-govco': progress >= 50 && progress < 75 }">
+              <div class="indicator-linea-avance-govco" data-la-target="#itemLineaAvance13" percentage="100">3</div>
+              <span class="title-linea-avance-govco">Procesan mi solicitud</span>
+          </div>
+          <div class="header-linea-avance-govco"
+            [ngClass]="{'active-linea-avance-govco': progress >= 75 && progress < 100 }">
+              <div class="indicator-linea-avance-govco" data-la-target="#itemLineaAvance14" percentage="100">4</div>
+              <span class="title-linea-avance-govco">Respuesta</span>
+          </div>
+      </div>
+  </div>
+</div>
+

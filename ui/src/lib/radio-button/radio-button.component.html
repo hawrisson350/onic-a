@@ -1,0 +1,7 @@
+<div [ngClass]="{'alignRow': arrayRadioButtons.align === 'row', 'alignColumn': arrayRadioButtons.align === 'column'}">
+    <div class="radio-seleccion-govco col-md-4 espaciador" *ngFor="let row of arrayRadioButtons?.data; let i = index" >
+        <input  type="radio" id="{{i}}" name="{{row.label}}" value={{row.value}} [disabled]="row.disabled"
+             (click)="selectCheck(row)" [checked]="row.check">
+        <label for="{{i}}">{{row.text}}</label>
+    </div>
+</div>

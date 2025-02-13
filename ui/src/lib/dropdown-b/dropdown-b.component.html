@@ -1,0 +1,57 @@
+<div *ngIf="!checkboxItem" class="entradas-de-texto-govco">
+    <label class="label-desplegable-govco"  [ngClass]="{'disabled-field' : isDisabled}"
+    >{{configs.labelText}}<span
+            aria-required="true"></span></label>
+    <div class="dropdown" [ngClass]="{'dropdown-disabled-govco': isDisabled}" #dropdownMenuContainer>
+        <button [disabled]="isDisabled" [ngClass]="{'widthComplete': isWidth === true}" (keyup)="onKeyUp($event)"
+            class="desplegableA btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" (focusout)="onFocusOutEvent($event)"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            {{configs.title}}
+        </button>
+
+        <lu class="itemsA dropdown-menu scroll-dark-govco" id="itemsA" aria-labelledby="dropdownMenuButton1"
+            #dropdownMenuContainer [ngClass]="{'widthComplete': isWidth === true}">
+            <li *ngIf="showSearchBar">
+                <input type="text" placeholder="Buscar..." class="input-search-govco" aria-label="Buscador"
+                    (input)="onInputChange()" [(ngModel)]="searchText" (keyup.enter)="onInputChange()" />
+            </li>
+            <li [value]="item.value" *ngFor="let item of arrayResultSearch">
+                <a class="items-value dropdown-item" (click)="choseItem(item.text)" (click)="choseItemObj(item)"
+                    [class.active]="selectedOption === item">{{item.text}}</a>
+            </li>
+        </lu>
+    </div>
+    <div *ngIf="requiredField && !selectedOption.text && bandera" class="text-danger">El campo es requerido</div>
+    <span *ngIf="!isDisabled" class="alert-desplegable-govco" id="alert-filter-id">{{configs.helpText}}</span>
+    <div class="desplegable-govco" [id]="'lista-desplegables'" data-type="basic">
+    </div>
+</div>
+
+<div *ngIf="checkboxItem" class="entradas-de-texto-govco">
+    <label  class="label-desplegable-govco">{{configs.labelText}}<span
+            aria-required="true"></span></label>
+    <div class="desplegable-govco">
+        <button [disabled]="isDisabled" [ngClass]="{'widthComplete': isWidth === true}"
+            class="desplegableA btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+            data-bs-toggle="dropdown" aria-expanded="true" aria-controls="collapseOne" data-bs-auto-close="outside" (focusout)="onFocusOutEvent($event)">
+            {{configs.title}}
+        </button>
+        <ul class="itemsA dropdown-menu scroll-dark-govco" id="itemsA" aria-labelledby="dropdownMenuButton2"
+            [ngClass]="{'widthComplete': isWidth === true}">
+            <li [value]="item.value" *ngFor="let item of lista">
+                <a class="items-value dropdown-item">
+                    <label class="checkbox-seleccion-govco m-2">
+                        <input id="opt1" type="checkbox" (change)="choseItemObjSelector(item)"
+                            [class.active]="selectedOption === item" [checked]="item.check" >
+                        {{item.text}}
+                    </label>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+    <div *ngIf="requiredField && !auxValidate" class="text-danger">El campo es requerido</div>
+    <span *ngIf="!isDisabled" class="alert-desplegable-govco" id="alert-filter-id">{{configs.helpText}}</span>
+    <div class="desplegable-govco" [id]="'lista-desplegables'" data-type="basic">
+    </div>
+</div>

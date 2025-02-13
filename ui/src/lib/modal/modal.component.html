@@ -1,0 +1,29 @@
+<div class="modal fade" [id]="idModal" aria-hidden="true" tabindex="0">
+  <div (click)="onclickInside()" class="modal-dialog modal-dialog-govco modal-dialog-centered">
+      <div class="modal-content modal-content-govco">
+          <div class="modal-header modal-header-govco">
+              <a href="#" (click)="btnCloseClick()" role="button" data-bs-dismiss="modal" class="close-btn-modal" aria-label="Close" aria-expanded="false">
+                  <span class="modal-close-govco govco-times"></span>
+              </a>
+          </div>
+          <div class="modal-body modal-body-govco center-elements-govco">
+              <div class="modal-icon">
+                  <span class="modal-icon-govco modal-success-icon"
+                      [ngClass]="{'modal-success-icon': modalConfig.typeAlertModal === 'success', 'modal-warning-icon' : modalConfig.typeAlertModal === 'warning', 'modal-error-icon' : modalConfig.typeAlertModal === 'error' }"></span>
+              </div>
+              <h3 class="modal-title-govco success-govco"
+                  [ngClass]="{'success-govco': modalConfig.typeAlertModal === 'success', 'warning-govco' : modalConfig.typeAlertModal === 'warning', 'error-govco' : modalConfig.typeAlertModal === 'error' }">
+                  {{modalConfig.title}}</h3>
+              <div class="modal-text-govco modal-text-center-govco" [innerHTML]="modalConfig.detail"></div>
+              <div class="modal-footer-govco modal-footer-alerts-govco">
+                  <div class="modal-buttons-govco label-desplegable-govco" style="justify-content: center;">
+                      <button *ngIf="modalConfig.btnOutlineSee" type="button" class="btn btn-primary btn-modal-govco btn-contorno" data-bs-dismiss="modal" style="margin-right: 1rem;" (click)="btnOutlineClick()">{{modalConfig.btnOutlineText}}</button>
+                      <button *ngIf="modalConfig.btnFillSee" type="button" class="btn btn-primary btn-modal-govco" data-bs-dismiss="modal" (click)="btnFillClick()" >{{modalConfig.btnFillText}}</button>
+                  </div>
+              </div>
+
+          </div>
+
+      </div>
+  </div>
+</div>

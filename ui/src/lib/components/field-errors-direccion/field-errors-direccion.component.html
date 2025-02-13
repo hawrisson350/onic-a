@@ -1,0 +1,33 @@
+<ng-container *ngIf="formField.errors && (formField?.dirty || formField?.touched) ">
+	<span class="error-texto-govco alert-entradas-de-texto-govco" role="alert" aria-live="assertive"
+		*ngIf="formField.errors?.['required']">
+		El campo es requerido
+	</span>
+
+	<span class="error-texto-govco alert-entradas-de-texto-govco" role="alert" aria-live="assertive"
+		*ngIf="formField.errors?.['minlength']">
+    Mínimo {{ formField.errors['minlength'].requiredLength }} caracteres
+	</span>
+
+	<span class="error-texto-govco alert-entradas-de-texto-govco" role="alert" aria-live="assertive"
+		*ngIf="formField.errors?.['maxlength']">
+    Máximo {{ formField.errors['maxlength'].requiredLength }} caracteres
+	</span>
+
+
+  <span class="error-texto-govco alert-entradas-de-texto-govco" role="alert" aria-live="assertive"
+		*ngIf="formField.errors?.['email']">
+		Correo no valido
+	</span>
+
+
+  <span class="error-texto-govco alert-entradas-de-texto-govco" role="alert" aria-live="assertive"
+		*ngIf="formField.errors?.['notMatch']">
+		Las direcciones de correo electrónico no coinciden
+	</span>
+
+  <span class="error-texto-govco alert-entradas-de-texto-govco" role="alert" aria-live="assertive"
+		*ngIf="formField.errors?.['pattern']">
+		Formato no valido
+	</span>
+</ng-container>

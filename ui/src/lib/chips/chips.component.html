@@ -1,0 +1,46 @@
+<span class="etiqueta-govco" *ngIf="chipStyle==='informative'">
+  <ng-content select="[bodyChipInformative]"></ng-content>
+</span>
+
+
+
+<span class="etiqueta-govco completado" *ngIf="chipStyle==='complete'">
+  <ng-content select="[bodyChipComplete]"></ng-content>
+</span>
+
+
+<span class="etiqueta-govco error" *ngIf="chipStyle==='error'">
+  <ng-content select="[bodyChipError]"></ng-content>
+</span>
+
+
+
+<span class="etiqueta-govco pendiente" *ngIf="chipStyle==='pending'">
+  <ng-content select="[bodyChipPending]"></ng-content>
+</span>
+
+
+
+<span *ngFor="let row of arrayChipsSelector; let i = index">
+  <button class="etiqueta-govco-filtro-angular" *ngIf="visible && chipStyle==='filter'">
+    <ng-container
+    *ngIf="bodyTemplateRef"
+    [ngTemplateOutlet]="bodyTemplateRef">
+   </ng-container>
+   <span style="font-weight: bold;"> {{row.valorFiltro}} </span>
+    <span (click)="onclickSelector(i)" class="button-close" type="button"></span>
+  </button>
+</span>
+
+
+
+<span *ngFor="let row of arrayChips; let i = index">
+  <button class="etiqueta-govco-filtro-angular" *ngIf="visible && chipStyle==='filter'">
+     <ng-container
+     *ngIf="bodyTemplateRef"
+     [ngTemplateOutlet]="bodyTemplateRef">
+    </ng-container>
+    <span style="font-weight: bold;"> {{row}} </span>
+    <span (click)="onclick(i)" class="button-close" type="button"></span>
+  </button>
+</span>

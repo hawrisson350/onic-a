@@ -1,0 +1,441 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" rel="stylesheet"
+        crossorigin="anonymous">
+</head>
+<div id="modal">
+    <!-- Alerta Modal Confirmación-->
+    <div class="tab-pane" id="confirmation">
+        <div class="container-modal-govco" id="modal_confirmacion" style="display: none">
+            <div class="modal-container-govco" id="exampleModalConfirmacion" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalConfirmacion" aria-hidden="true"
+                aria-hidden="true" role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem, '')">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-header modal-header-govco">
+                                <a href="javascript:void(0)" role="button" data-bs-dismiss="modal"
+                                    class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                    (click)="closeModal('Close', modalItem, '')">
+                                    <span class="modal-close-govco govco-times"></span>
+                                </a>
+                            </div>
+                            <div class="modal-header modal-header-govco modal-header-alerts-govco">
+                            </div>
+                            <div class="modal-body modal-body-govco center-elements-govco">
+                                <div class="modal-icon">
+                                    <span class="modal-icon-govco modal-confirmation-icon"></span>
+                                </div>
+                                <h3 class="modal-title-govco confirmation-govco">
+                                    {{modalItem.title}}
+                                </h3>
+                                <p class="modal-text-govco modal-text-center-govco">
+                                    {{modalItem.description}}
+                                </p>
+                            </div>
+                            <div class="modal-footer-govco modal-footer-alerts-govco">
+                                <div class="modal-buttons-govco">
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                        *ngIf="modalItem.buttonLeft !== ''"
+                                        (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                        {{modalItem.buttonLeft}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-modal-govco" *ngIf="modalItem.buttonRight !== ''"
+                                        (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                        {{modalItem.buttonRight}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerta Modal Éxito -->
+    <div class="tab-pane" id="success">
+        <div class="container-modal-govco" id="modal_exito" style="display: none">
+            <div class=" modal-container-govco" id="exampleModalExito" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalExito" aria-hidden="true" aria-hidden="true"
+                role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem,'')">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-header modal-header-govco">
+                                <a href="javascript:void(0)" role="button" data-bs-dismiss="modal"
+                                    class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                    (click)="closeModal('Close', modalItem, '')">
+                                    <span class="modal-close-govco govco-times"></span>
+                                </a>
+                            </div>
+                            <!-- <div class="modal-header modal-header-govco modal-header-alerts-govco">
+                                <button type="button" disabled class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div> -->
+                            <div class="modal-body modal-body-govco center-elements-govco">
+                                <div class="modal-icon">
+                                    <span class="modal-icon-govco modal-success-icon"></span>
+                                </div>
+                                <h3 class="modal-title-govco success-govco">
+                                    {{modalItem.title}}
+                                </h3>
+                                <p class="modal-text-govco modal-text-center-govco">
+                                    {{modalItem.description}}
+                                </p>
+                            </div>
+                            <div class="modal-footer-govco modal-footer-alerts-govco">
+                                <div class="modal-buttons-govco">
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                        *ngIf="modalItem.buttonLeft !== ''"
+                                        (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                        {{modalItem.buttonLeft}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-modal-govco "
+                                        *ngIf="modalItem.buttonRight !== ''"
+                                        (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                        {{modalItem.buttonRight}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Alerta Modal Éxito Spinner -->
+    <div class="tab-pane" id="success_spinner">
+        <div class="container-modal-govco" id="modal_exito_spinner" style="display: none">
+            <div class=" modal-container-govco" id="exampleModalExito" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalExito" aria-hidden="true" aria-hidden="true"
+                role="dialog" *ngIf="modalItem">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-body modal-body-govco center-elements-govco">
+                                <div class="modal-icon">
+                                    <span class="modal-icon-govco modal-success-icon"></span>
+                                </div>
+                                <h3 class="modal-title-govco success-govco">
+                                    {{modalItem.title}}
+                                </h3>
+                                <div class="load-button-carga-de-archivo-gov-co button-procesar-margin">
+                                    <div class="load-carga-de-archivo-gov-co mb-2">
+                                        <div *ngIf="progress" class="spinner-indicador-de-carga-govco"
+                                        style="width: 32px; height: 32px; border-width: 6px;" role="status">
+                                        <span class="visually-hidden">Cargando...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="modal-text-govco modal-text-center-govco">
+                                    {{modalItem.description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Alerta Modal Éxito con Advertencia -->
+    <div class="tab-pane" id="success">
+      <div class="container-modal-govco" id="modal_exito_warning" style="display: none">
+          <div class=" modal-container-govco" id="exampleModalExito" tabindex="-1" data-bs-backdrop="false"
+              data-bs-keyboard="false" aria-labelledby="exampleModalExito" aria-hidden="true" aria-hidden="true"
+              role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem,'')">
+              <div class="centerModal">
+                  <div class="modal-dialog modal-dialog-govco">
+                      <div class="modal-content modal-content-govco">
+                          <div class="modal-header modal-header-govco">
+                              <a href="javascript:void(0)" role="button" data-bs-dismiss="modal"
+                                  class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                  (click)="closeModal('Close', modalItem, '')">
+                                  <span class="modal-close-govco govco-times"></span>
+                              </a>
+                          </div>
+                          <div class="modal-body modal-body-govco center-elements-govco">
+                              <div class="modal-icon">
+                                  <span class="modal-icon-govco modal-success-icon"></span>
+                              </div>
+                              <p class="modal-title-govco success-govco">
+                                {{modalItem.title.split("-")[0]}}
+                              </p>
+                              <p class="modal-text-govco modal-text-center-govco">
+                                {{modalItem.description.split("-")[0]}}
+                              </p>
+                              <div class="modal-icon">
+                                <span class="modal-icon-govco modal-warning-icon"></span>
+                              </div>
+                              <p class="modal-title-govco warning-govco">
+                                {{modalItem.title.split("-")[1]}}
+                              </p>
+                              <p class="modal-text-govco modal-text-center-govco">
+                                {{modalItem.description.split("-")[1]}}
+                              </p>
+                          </div>
+                          <div class="modal-footer-govco modal-footer-alerts-govco">
+                              <div class="modal-buttons-govco">
+                                  <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                      *ngIf="modalItem.buttonLeft !== ''"
+                                      (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                      {{modalItem.buttonLeft}}
+                                  </button>
+                                  <button type="button" class="btn btn-primary btn-modal-govco "
+                                      *ngIf="modalItem.buttonRight !== ''"
+                                      (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                      {{modalItem.buttonRight}}
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+    <!-- Alerta Modal Error -->
+    <div class="tab-pane" id="error">
+        <div class="container-modal-govco" id="modal_error" style="display: none">
+            <div class="modal-container-govco" id="exampleModalError" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalError" aria-hidden="true" aria-hidden="true"
+                role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem,'')">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-header modal-header-govco">
+                                <a href="javascript:void(0)" role="button" data-bs-dismiss="modal"
+                                    class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                    (click)="closeModal('Close', modalItem, '')">
+                                    <span class="modal-close-govco govco-times"></span>
+                                </a>
+                            </div>
+                            <!-- <div class="modal-header modal-header-govco modal-header-alerts-govco">
+                                <button type="button" disabled class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div> -->
+                            <div class="modal-body modal-body-govco center-elements-govco">
+                                <div class="modal-icon">
+                                    <span class="modal-icon-govco modal-error-icon"></span>
+                                </div>
+                                <h3 class="modal-title-govco error-govco">
+                                    {{modalItem.title}}
+                                </h3>
+                                <p class="modal-text-govco modal-text-center-govco" [innerHTML]="modalItem.description">
+                                </p>
+                            </div>
+                            <div class="modal-footer-govco modal-footer-alerts-govco">
+                                <div class="modal-buttons-govco">
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                        *ngIf="modalItem.buttonLeft !== ''"
+                                        (click)="closeModal('Left', modalItem,modalItem.buttonLeft)">
+                                        {{modalItem.buttonLeft}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-modal-govco"
+                                        *ngIf="modalItem.buttonRight !== ''"
+                                        (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                        {{modalItem.buttonRight}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerta Modal Warning -->
+    <div class="tab-pane" id="warning">
+        <div class="container-modal-govco" id="modal_warning" style="display: none">
+            <div class="modal-container-govco" id="exampleModalWarning" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalAdvertencia" aria-hidden="true" aria-hidden="true"
+                role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem, '')">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-header modal-header-govco">
+                                <a href="javascript:void(0)"  role="button" data-bs-dismiss="modal"
+                                    class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                    (click)="closeModal('Close', modalItem, '')">
+                                    <span class="modal-close-govco govco-times"></span>
+                                </a>
+                            </div>
+                            <!-- <div class="modal-header modal-header-govco modal-header-alerts-govco">
+                                <button type="button" disabled class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div> -->
+                            <div class="modal-body modal-body-govco center-elements-govco">
+                                <div class="modal-icon">
+                                    <span class="modal-icon-govco modal-warning-icon"></span>
+                                </div>
+                                <h3 class="modal-title-govco warning-govco">
+                                    {{modalItem.title}}
+                                </h3>
+                                <p class="modal-text-govco" [innerHTML]=modalItem.description>
+                                </p>
+                            </div>
+                            <div class="modal-footer-govco modal-footer-alerts-govco">
+                                <div class="modal-buttons-govco">
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                        style="min-width: 165px !important;" *ngIf="modalItem.buttonLeft !== ''"
+                                        (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                        {{modalItem.buttonLeft}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-mod"
+                                        style="width: 190px;" *ngIf="modalItem.buttonRight !== ''"
+                                        (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                        {{modalItem.buttonRight}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerta Modal help -->
+    <div class="tab-pane" id="help">
+        <div class="container-modal-govco" id="modal_help" style="display: none">
+            <div class="modal-container-govco" id="exampleModalHelp" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalAyuda" aria-hidden="true" aria-hidden="true"
+                role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem, '')">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-header modal-header-govco">
+                                <a href="javascript:void(0)"  role="button" data-bs-dismiss="modal"
+                                    class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                    (click)="closeModal('Close', modalItem, '')">
+                                    <span class="modal-close-govco govco-times"></span>
+                                </a>
+                            </div>
+                            <div class="modal-body modal-body-govco center-elements-govco">
+                                <div class="modal-icon">
+                                    <span class="modal-icon-govco modal-warning-icon"></span>
+                                </div>
+                                <h3 class="modal-title-govco warning-govco">
+                                    {{modalItem.title}}
+                                </h3>
+                                <p class="modal-text-govco justify-text-govco" [innerHTML]=modalItem.description>
+                                </p>
+                            </div>
+                            <div class="modal-footer-govco modal-footer-alerts-govco">
+                                <div class="modal-buttons-govco">
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                        style="min-width: 165px !important;" *ngIf="modalItem.buttonLeft !== ''"
+                                        (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                        {{modalItem.buttonLeft}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-mod"
+                                        style="width: 190px;" *ngIf="modalItem.buttonRight !== ''"
+                                        (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                        {{modalItem.buttonRight}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerta Modal Basico-->
+    <div class="tab-pane active" id="basic">
+        <div class="container-modal-govco" id="modal_basico" style="display: none">
+            <div class="modal-container-govco" id="exampleModalBasic" tabindex="-1" data-bs-backdrop="false"
+                data-bs-keyboard="false" aria-labelledby="exampleModalBasic" aria-hidden="true" aria-hidden="true"
+                role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem,'')">
+                <div class="centerModal">
+                    <div class="modal-dialog modal-dialog-govco">
+                        <div class="modal-content modal-content-govco">
+                            <div class="modal-header modal-header-govco">
+                                <a href="javascript:void(0)" role="button" data-bs-dismiss="modal"
+                                    class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                    (click)="closeModal('Close', modalItem, '')">
+                                    <span class="modal-close-govco govco-times"></span>
+                                </a>
+                            </div>
+                            <div class="modal-body modal-body-govco">
+                                <h3 class="modal-title-govco">{{modalItem.title}}</h3>
+                                <h3 class="modal-subtitle-govco">{{modalItem.subTitle}}</h3>
+                                <p class="modal-text-govco" [innerHTML]=modalItem.description>
+                                </p>
+                            </div>
+                            <div class="modal-footer-govco">
+                                <div class="modal-buttons-govco">
+                                    <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                        *ngIf="modalItem.buttonLeft !== ''"
+                                        (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                        {{modalItem.buttonLeft}}
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-modal-govco"
+                                        *ngIf="modalItem.buttonRight !== ''"
+                                        (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                        {{modalItem.buttonRight}}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Alerta Modal Warning Question -->
+        <div class="tab-pane" id="warning_question">
+            <div class="container-modal-govco" id="modal_warning_question" style="display: none">
+                <div class="modal-container-govco" id="exampleModalWarningQuestion" tabindex="-1" data-bs-backdrop="false"
+                    data-bs-keyboard="false" aria-labelledby="exampleModalAdvertencia" aria-hidden="true" aria-hidden="true"
+                    role="dialog" *ngIf="modalItem" (click)="closeModal('Close', modalItem, '')">
+                    <div class="centerModal">
+                        <div class="modal-dialog modal-dialog-govco">
+                            <div class="modal-content modal-content-govco">
+                                <div class="modal-header modal-header-govco">
+                                    <a href="javascript:void(0)" *ngIf="modalItem.buttonLeft === '' && modalItem.buttonLeft === ''" role="button" data-bs-dismiss="modal"
+                                        class="close-btn-modal" aria-label="Close" aria-expanded="false"
+                                        (click)="closeModal('Close', modalItem, '')">
+                                        <span class="modal-close-govco govco-times"></span>
+                                    </a>
+                                </div>
+                                <!-- <div class="modal-header modal-header-govco modal-header-alerts-govco">
+                                    <button type="button" disabled class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div> -->
+                                <div class="modal-body modal-body-govco center-elements-govco">
+                                    <div class="modal-icon">
+                                        <span class="modal-icon-govco modal-warning-icon"></span>
+                                    </div>
+                                    <h3 class="modal-title-govco warning-govco">
+                                        {{modalItem.title}}
+                                    </h3>
+                                    <p class="modal-text-govco" style="font-size: medium;font-weight: bold;color: #F8A600;" [innerHTML]=modalItem.description>
+                                    </p>
+                                </div>
+                                <div class="modal-footer-govco modal-footer-alerts-govco">
+                                    <div class="modal-buttons-govco">
+                                        <button type="button" class="btn btn-primary btn-modal-govco btn-contorno"
+                                            style="min-width: 165px !important;" *ngIf="modalItem.buttonLeft !== ''"
+                                            (click)="closeModal('Left', modalItem, modalItem.buttonLeft)">
+                                            {{modalItem.buttonLeft}}
+                                        </button>
+                                        <button *ngIf="modalItem.buttonRight !== ''" type="button" class="btn btn-primary btn-modal-govco btn-mod"
+                                            style="width: 180px;padding: 0px !important;"
+                                            (click)="closeModal('Right', modalItem, modalItem.buttonRight)">
+                                            {{modalItem.buttonRight}}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

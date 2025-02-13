@@ -1,0 +1,319 @@
+
+  html {
+    font-size: 100%; /* 100% = 16px */
+  }
+  
+  .accordion-govco .accordion-header {
+    line-height: 0;
+    margin: 0;
+  }
+  
+  .accordion-govco .button-header-accordion-govco {
+    width: 100%;
+    text-align: left;
+    margin-left: 0 ;
+    background-color: var(--background-container, none);
+    border: 0;
+    min-height: var(--header-min-height, 4.375rem);
+    padding: 0 1.5rem;
+    border-bottom: var(--border-boton-header, 0.125rem solid #E6EFFD);
+    display: flex;
+    align-items: center;
+  }
+  
+  .accordion-govco .button-accordion-govco:focus {
+    background-color: #ffffff;
+  }
+  
+  .accordion-govco .text-button-accordion-govco {
+    font-family: var(--font-type, Montserrat-SemiBold) !important;
+    color: var(--font-color, black) !important;
+    font-size: var(--font-size, 18px) !important; 
+    margin-left: var(--margin-left-text, 3rem) !important; 
+    line-height: 1rem;
+  }
+  
+
+
+  
+  .mr-0 {
+    margin-right: 0;
+  }
+  .ml-auto {
+    margin-left:auto;
+  }
+  .d-block {
+    display:block;
+  }
+
+  button.button-close{
+    font-family: "govco-font";
+    content: "\e813";
+    color: #662929;
+    background-color: transparent;
+    border:none; 
+    outline:none;
+  }
+
+  /* arrow color */
+  .button-close:before{
+    font-family: "govco-font";
+    content: "\e814";
+    color: var(--arrow-color, #004884) !important;
+    font-size: var(--arrow-size, 30px) !important; 
+    background-color: transparent;
+    border:none; 
+    outline:none;
+  }
+
+  button.button-open{
+    font-family: "govco-font";
+    content: "\e814";
+    color: #004884;
+    background-color: #ffffff;
+    border:none; 
+    outline:none;
+  }
+
+  .button-open:before{
+    font-family: "govco-font";
+    content: "\e813";
+    color: #004884;
+    background-color: none;
+    border:none; 
+    outline:none;
+  }
+
+  button.button-disabled{
+    font-family: "govco-font";
+    content: "\e813";
+    color: #ffffff;
+    background-color: transparent;
+    border:none; 
+    outline:none;
+  }
+
+  .button-disabled:before{
+    font-family: "govco-font";
+    content: "\e814";
+    color: #ffffff;
+    background-color: transparent;
+    border:none; 
+    outline:none;
+  }
+
+  
+
+
+  
+  .accordion-govco .item-accordion-govco {
+    background-color: var(--transition-color, #ffffff) !important; 
+  }
+  
+  .accordion-govco .body-accordion-govco {
+    padding: 0rem 0rem 0rem 0rem;
+    background-color: #F6F8F9 ;
+    
+  }
+  
+  .accordion-govco .title-one-accordion-govco {
+    color: #004884;
+    font-size: 18px;
+    font-family: Montserrat-SemiBold;
+    display: block;
+  }
+  
+  .accordion-govco .title-two-accordion-govco {
+    color: #000000;
+    font-size: 16px;
+    font-family: Montserrat-Bold;
+    margin-left: 0.875rem;
+    margin-top: 1.875rem;
+    display: block;
+  }
+  
+  .accordion-govco .text-one-accordion-govco {
+    color: #000000;
+    font-size: 16px;
+    font-family: WorkSans-Regular;
+    margin-left: 0.875rem;
+    margin-top: 0.938rem;
+    margin-bottom: 0;
+    display: block;
+    line-height: 1.5rem;
+  }
+  
+  .accordion-govco .button-accordion-govco:disabled {
+    background-color: #737373;
+  }
+  
+  .accordion-govco .button-accordion-govco:focus-visible {
+    outline: 0.125rem solid black;
+  }
+  
+  .accordion-govco .button-accordion-govco:disabled .text-button-accordion-govco {
+    color: #FFFFFF;
+  }
+  
+  .accordion-govco .button-accordion-govco:disabled::after{
+    color: #FFFFFF;
+  }
+  
+  .accordion-govco .button-accordion-govco:disabled > * {
+    pointer-events:none;
+    color: #FFFFFF;
+  }
+
+  .arrayLength{
+    float: right;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+    margin-right: 10px;
+  }
+
+  .rounded-circle{
+    border:1px solid;
+    border-radius:50%;
+    text-align: center;
+    width:25px;
+    height: 25px;
+    font-size: 14px;
+    margin-right: 10px;
+    background-color: white;
+    }
+    
+    .circle {
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+      border-radius: 50%;
+      font-size: 14px;
+      color: black;
+      text-align: center;
+      background: #E6EFFD;
+      margin-right: 10px;
+    }
+
+.accordion-govco .accordion-header {
+  line-height: 0;
+  margin: 0;
+}
+
+.accordion-govco .button-accordion-govco {
+  width: 100%;
+  text-align: left;
+  background-color: #ffffff;
+  border: 0;
+  min-height: 4.375rem;
+  padding: 0 1.5rem;
+  border-bottom: 0.125rem solid #E6EFFD;
+  display: flex;
+  align-items: center;
+}
+
+.accordion-govco .button-accordion-govco:focus {
+  background-color: #ffffff;
+}
+
+.accordion-govco .text-button-accordion-govco {
+  font-family: Montserrat-SemiBold;
+  color: #000000;
+  font-size: 18px;
+  line-height: 1rem;
+}
+
+.accordion-govco .button-accordion-govco::after {
+  font-family: "govco-font";
+  line-height: 0;
+  font-size: 26px;
+  color: #004884;
+  margin-left: auto;
+}
+
+
+.accordion-govco .item-accordion-govco {
+  background-color: #ffffff;
+}
+
+.accordion-govco .body-accordion-govco {
+  padding: 0rem 1.5rem 1.875rem 1.5rem;
+  background-color: var(--body-color, #F6F8F9); 
+}
+
+.accordion-govco .title-one-accordion-govco {
+  color: #004884;
+  font-size: 18px;
+  font-family: Montserrat-SemiBold;
+  display: block;
+}
+
+.accordion-govco .title-two-accordion-govco {
+  color: #000000;
+  font-size: 16px;
+  font-family: Montserrat-Bold;
+  margin-left: 0.875rem;
+  margin-top: 1.875rem;
+  display: block;
+}
+
+.accordion-govco .text-one-accordion-govco {
+  color: #000000;
+  font-size: 16px;
+  font-family: WorkSans-Regular;
+  margin-left: 0.875rem;
+  margin-top: 0.938rem;
+  margin-bottom: 0;
+  display: block;
+  line-height: 1.5rem;
+}
+
+.accordion-govco .button-accordion-govco:disabled {
+  background-color: #737373;
+}
+
+.accordion-govco .button-accordion-govco:disabled::after{
+  color: #FFFFFF;
+}
+
+.accordion-govco .button-accordion-govco:disabled > * {
+  pointer-events:none;
+  color: #FFFFFF;
+}
+
+.accordion-govco .button-accordion-govco:focus-visible {
+  outline: 0.125rem solid black;
+}
+
+/* style icon or number */
+.accordion-govco .icon-button-accordion-govco {
+  font-family: Montserrat-Bold;
+  font-size: 20px;
+  color: #FFFFFF;
+  background-color: #004884;
+  border-radius: 3.125rem;
+  min-width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.625rem;
+}
+
+.accordion-govco .button-accordion-govco:disabled .icon-button-accordion-govco {
+  background-color: #FFFFFF;
+  color: #737373;
+}
+
+.accordion-item-custom{
+  line-height: 0;
+  margin: 0;
+}
+
+p {
+  display: block;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}

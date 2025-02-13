@@ -1,0 +1,258 @@
+<div
+  class="form-group pt-0 entradas-de-texto-govco" 
+  [ngClass]="{ 'custom-padding-control-valid': showStatus && (isControlValid || isControlInvalid) }"
+  [class.disabled-govco]="disabled"
+> 
+  <label for="">{{ label }}</label>
+  <div class="container-input-texto-govco">
+    <ng-container *ngIf="type === 'number' || type === 'tel' ; else other_type">
+      <input
+        *ngIf="!showCurrencyFormat"
+        class="form-control error"
+        [class.error]="showStatus && isControlInvalid"
+        [class.success]="showStatus && isControlValid"
+        [formControl]="control"
+        [name]="control"
+        [type]="type"
+        [placeholder]="placeholder"
+        [min]="min"
+        [max]="max"
+        [required]="required"
+        [readonly]="isReadOnly"
+        (keydown)="onKey($event)"
+        (paste)="onPasteEvent($event)"
+        (drop)="onDropEvent($event)"
+        (input)="onInputEvent($event)"
+        (keypress)="onKeyPressEvent($event)"
+        autocomplete="off"
+        />
+        <!-- [formdDisableControl]="disabled" -->
+      <input
+        *ngIf="showCurrencyFormat"
+        class="form-control error"
+        [class.error]="showStatus && isControlInvalid"
+        [class.success]="showStatus && isControlValid"
+        [formControl]="control"
+        [name]="control"
+        [placeholder]="placeholder"
+        [min]="min"
+        [max]="max"
+        [required]="required"
+        (keydown)="onKey($event)"
+        (paste)="onPasteEvent($event)"
+        (drop)="onDropEvent($event)"
+        (input)="onInputEvent($event)"
+        (keypress)="onKeyPressEvent($event)"
+        mask="separator.2"
+        thousandSeparator="."
+        autocomplete="off"
+        />
+        <!-- [formdDisableControl]="disabled" -->
+    </ng-container>
+    <ng-template #other_type>
+      <input
+        #inputRef
+        *ngIf="!showCurrencyFormat"
+        class="form-control error"
+        [class.error]="showStatus && isControlInvalid"
+        [class.success]="showStatus && isControlValid"
+        [formControl]="control"
+        [name]="control"
+        [type]="type === 'email' ? 'text' : type"
+        [placeholder]="placeholder"
+        [minlength]="minLength === 0 ? 1 : minLength"
+        [maxlength]="maxLength === 0 ? 100 : maxLength"
+        [required]="required"
+        [readonly]="isReadOnly"
+        (keydown)="onKey($event)"
+        (paste)="onPasteEvent($event)"
+        (drop)="onDropEvent($event)"
+        (input)="onInputEvent($event)"
+        (keypress)="onKeyPressEvent($event)"
+        autocomplete="off"
+        />
+        <!-- [formdDisableControl]="disabled" -->
+      <input
+        *ngIf="showCurrencyFormat"
+        class="form-control error"
+        [class.error]="showStatus && isControlInvalid"
+        [class.success]="showStatus && isControlValid"
+        [formControl]="control"
+        [name]="control"
+        [placeholder]="placeholder"
+        [maxlength]="maxLength"
+        [minlength]="minLength"
+        [required]="required"
+        (paste)="onPasteEvent($event)"
+        (drop)="onDropEvent($event)"
+        (keydown)="onKey($event)"
+        (input)="onInputEvent($event)"
+        (keypress)="onKeyPressEvent($event)"
+        mask="separator.2"
+        thousandSeparator="."
+        />
+        <!-- [formdDisableControl]="disabled" -->
+    </ng-template>
+
+    <!-- #region Icons -->
+    <ng-container *ngIf="type !== 'password'; else inputPassword">
+      <div
+        class="icon-entradas-de-texto-govco success-icon-entradas-de-texto-govco"
+        aria-label="success"
+        aria-hidden="true"
+        disabled
+      ></div>
+      <div
+        class="icon-entradas-de-texto-govco error-icon-entradas-de-texto-govco"
+        aria-label="error"
+        aria-hidden="true"
+      ></div>
+    </ng-container>
+    <ng-template #inputPassword>
+      <button
+        type="button" (click)="showPassword()" #showPasswordButton
+        class="icon-entradas-de-texto-govco eye-entradas-de-texto-govco none"
+        aria-label="Ocultar contraseña"
+      ></button>
+      <button
+        type="button" (click)="hidePassword()" #hidePasswordButton
+        class="icon-entradas-de-texto-govco eye-slash-entradas-de-texto-govco"
+        aria-label="Mostrar contraseña"
+      ></button>
+    </ng-template>
+    <!--#endregion -->
+  </div>
+  <div
+    *ngIf="showCounter"
+    class="counter-entradas-de-texto-govco"
+    id="contador"
+    role="status"
+  >
+    <span class="number-entradas-de-texto-govco">{{
+      control.value?.length
+    }}</span>
+    <span> de {{ maxLength }}</span>
+  </div>
+
+  <span id="campo-nota" class="entradas-de-texto-govco">{{ note }}</span>
+  <span
+    *ngIf="textSuccess && isControlValid"
+    class="success-texto-govco alert-entradas-de-texto-govco"
+    id="campoSuccess-id"
+    role="status"
+    aria-live="polite"
+    >{{ textSuccess }}</span
+  >
+  <!-- Mostrar mensajes de validación -->
+  <ng-container *ngIf="isControlInvalid || control.hasError('repeatedName')">
+    <span
+      *ngIf="control.hasError('required')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >El campo es requerido</span
+    >
+    <span
+      *ngIf="control.hasError('maxlength')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >Máximo hasta {{ maxLength }} caracteres</span
+    >
+    <span
+      *ngIf="control.hasError('minlength')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >Mínimo {{ minLength }} caracteres</span
+    >
+    <span
+      *ngIf="control.hasError('invalidURL')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive">
+      La Url debe ser válida
+      </span
+    >
+    <span
+      *ngIf="control.hasError('max')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >El valor debe ser menor o igual a {{ max }}</span
+    >
+    <span
+      *ngIf="control.hasError('min')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >El valor debe ser mayor o igual a {{ min }}</span
+    >
+    <span
+      *ngIf="control.hasError('repeatedName')"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive">
+      No se permiten nombres repetidos
+    </span>
+    <span
+      *ngIf="control.hasError('pattern') && type === 'email' "
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >Correo electrónico no válido</span
+    >
+    <span
+      *ngIf="control.hasError('pattern') && type === 'password'"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >Contraseña incorrecta, debe contener mínimo ocho (8) caracteres, un
+      número, una letra minúscula, una letra mayúscula, un carácter
+      especial.</span
+    >
+    <span
+    *ngIf="control.hasError('pattern') && type !== 'email' && type !== 'tel'"
+    class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >El campo contiene caracteres no válidos.</span>
+    <span
+    *ngIf="control.hasError('validationError') && control.errors?.['validationError'].type === 'numeric'"
+    class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      > 
+      El campo solo permite números.
+      </span
+    >
+    <span
+      *ngIf="control.hasError('pattern') && type === 'tel'"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >Número de teléfono no válido
+  </span>
+    <span
+      *ngIf="control.touched && confirmPasswordControl?.touched && control.value !== confirmPasswordControl?.value"
+      class="error-texto-govco alert-entradas-de-texto-govco"
+      id="campoWarning-id"
+      role="alert"
+      aria-live="assertive"
+      >Las contrase&ntilde;as no coinciden
+    </span>
+  </ng-container>
+</div>
+

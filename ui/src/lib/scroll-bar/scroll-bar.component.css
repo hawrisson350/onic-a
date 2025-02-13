@@ -1,0 +1,77 @@
+.scroll-dark-govco{
+    overflow-y:scroll;
+    scrollbar-face-color:#3772FF !important;
+    scrollbar-track-color:#fff !important;
+    scrollbar-arrow-color:#fff !important;
+    scrollbar-highlight-color:#3772FF !important;
+    scrollbar-3dlight-color:#3772FF !important;
+    scrollbar-darkshadow-color:#3772FF !important;
+    scrollbar-color:#3772FF #fff !important;
+    scrollbar-width:thin !important;
+    background-color: var(--background-container, none);
+    height: var(--height-container, 400px);
+    width: var(--width-container, 500px);
+    border: var(--border-container, none);
+    padding: var(--padding-container, 5px);
+}
+.scroll-dark-govco::-webkit-scrollbar{
+        width:0.7em;
+        height:0.7em
+    }
+.scroll-dark-govco::-webkit-scrollbar-thumb{
+    border-radius:10px;
+    background:#3772FF;
+    box-shadow:inset 0 0 1px 1px #fff
+}
+.scroll-dark-govco::-webkit-scrollbar-track{
+    border-radius:10px;background:#fff
+}
+
+.scroll-dark-govco::-webkit-scrollbar-thumb:hover{
+    background:#3772FF
+}
+
+.scroll-light-govco{
+    overflow-y:scroll;
+    scrollbar-face-color:#004884 !important;
+    scrollbar-track-color:#E6EFFD !important;
+    scrollbar-arrow-color:#E6EFFD !important;
+    scrollbar-highlight-color:#E6EFFD !important;
+    scrollbar-3dlight-color:#E6EFFD !important;
+    scrollbar-darkshadow-color:#E6EFFD !important;
+    scrollbar-color:#004884 #E6EFFD !important;
+    scrollbar-width:thin !important;
+    background-color: var(--background-container, none);
+    height: var(--height-container, 400px);
+    width: var(--width-container, auto);
+    border: var(--border-container, none);
+    padding-top: var(--padding-container-top, 0) !important;
+    padding-left: var(--padding-container-left, 0) !important;
+    padding-bottom: var(--padding-container-bottom, 0) !important;
+    padding-right: var(--padding-container-right, 0) !important;
+    margin-left: var(--margin-container-left, 0) !important;
+    margin-right: var(--margin-container-right, 0) !important;
+    margin-top: var(--margin-container-top, 0) !important;
+    margin-bottom: var(--margin-container-bottom, 0) !important; 
+ 
+}
+
+.scroll-light-govco::-webkit-scrollbar{
+    width:0.7em;
+    height:0.7em
+}
+
+.scroll-light-govco::-webkit-scrollbar-thumb{
+    border-radius:10px;
+    background:#004884;
+    box-shadow:inset 0 0 1px 1px #E6EFFD
+}
+
+.scroll-light-govco::-webkit-scrollbar-track{
+    border-radius:10px;background:#E6EFFD
+}
+
+.scroll-light-govco::-webkit-scrollbar-thumb:hover{
+    background:#004884
+}
+

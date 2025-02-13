@@ -1,0 +1,100 @@
+<div class="pagination-container-govco">
+    <div class="row">
+      <div class="col-md-3">
+        <span class="next-page-text-govco" style="color: #3366cc;">Elementos por página</span>&nbsp;
+        <select [(ngModel)]="pageSize" (change)="onChangeSelect()" name="pageSize" class="desplegableA dropdown-toggle">
+          <option *ngFor="let i of pageSizeElement" value="{{ i }}">{{ i }}</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <nav class="nav-pagination-govco" >
+          <div class="pagination-govco">
+            <ul id="lista-paginador">
+              <!-- botón anterior -->
+              <li
+                class="page-item-govco prev-page-govco no"
+                [class.disabled-govco]="currentPage === 1"
+              >
+                <a href="javascript:void(0)" (click)="previousPage()"
+                  ><span class="prev-page-icon-govco"></span
+                  ><span class="prev-page-text-govco">Anterior</span></a
+                >
+              </li>
+      
+              <div
+                *ngIf="
+                  totalPages < 6;
+                  then paginatorWithoutPoints;
+                  else paginatorWithPoints
+                "
+              ></div>
+              <!-- si son 6 paginas o menos -->
+              <ng-template #paginatorWithoutPoints>
+                <li
+                  *ngFor="let item of createRange(1, totalPages)"
+                  class="page-item-govco number-govco"
+                  [class.no]="currentPage !== item"
+                  [class.active-govco]="currentPage === item"
+                >
+                  <a href="javascript:" (click)="selectPage(item)">{{ item }}</a>
+                </li></ng-template
+              >
+      
+              <ng-template #paginatorWithPoints>
+                <!-- mostrar primera pagina y puntos -->
+                <li *ngIf="currentPage > 2" class="page-item-govco number-govco">
+                  <a href="javascript:" (click)="selectPage(1)">1</a>
+                </li>
+                <li *ngIf="currentPage > 3" class="page-item-govco dots-govco">
+                  <a>...</a>
+                </li>
+      
+                <!-- mostrar paginas en el centro -->
+                <li
+                  *ngFor="let item of createRange(beforePages, afterPages)"
+                  class="page-item-govco number-govco"
+                  [class.no]="currentPage !== item"
+                  [class.active-govco]="currentPage === item"
+                >
+                  <a href="javascript:" (click)="selectPage(item)">{{ item }}</a>
+                </li>
+      
+                <!-- mostrar puntos y ultima pagina -->
+                <li
+                  *ngIf="currentPage < totalPages - 2"
+                  class="page-item-govco dots-govco"
+                >
+                  <a>...</a>
+                </li>
+                <li
+                  *ngIf="currentPage < totalPages - 1"
+                  class="page-item-govco number-govco"
+                >
+                  <a href="javascript:" (click)="selectPage(totalPages)">{{
+                    totalPages
+                  }}</a>
+                </li>
+              </ng-template>
+      
+              <!-- botón siguiente -->
+              <li
+                class="page-item-govco next-page-govco"
+                [class.disabled-govco]="currentPage === totalPages"
+              >
+                <a href="javascript:" (click)="nextPage()"
+                  ><span class="next-page-icon-govco"></span
+                  ><span class="next-page-text-govco">Siguiente</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="col-md-3">
+  
+      </div>
+    </div>
+  
+    </div>
+    
+  

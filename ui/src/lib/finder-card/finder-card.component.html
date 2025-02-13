@@ -1,0 +1,35 @@
+<div>
+    <div class="search-govco">
+        <div class="bar-search-govco" id="barSearch">
+            <input type="text" placeholder="Buscar..." class="input-search-govco" aria-label="Buscador"
+                [(ngModel)]="searchText" (keyup.enter)="buttonSearch(searchText)" />
+            <button class="icon-search-govco icon-close-search-govco" aria-label="Limpiar" (click)="clean()"></button>
+            <div class="icon-search-govco search-icon-search-govco" aria-hidden="true"
+                (click)="buttonSearch(searchText)" (keyup.enter)="buttonSearch(searchText)"></div>
+        </div>
+        <div class="container-options-search-govco">
+            <div class="options-search-govco">
+                <ul>
+                    <li *ngFor="let row of arraySearch">
+                        <p tabindex="-1" (click)="buttonSearch(row.text)">
+                            <strong>{{row.valorFiltro}}</strong>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+        <!-- <terra-scroll-bar class="custom-details-small-container" scrollStyle="light">
+            <div bodyLightScroll>
+                <div *ngFor="let row of arrayResultSearch; let i = index" class="checkbox-seleccion-govco m-2">
+                    <input type="checkbox" (click)="selectCheckBox(row)" [(ngModel)]="row.check" id={{myId+i}} />
+                    <label for={{myId+i}}>{{row.valorFiltro}}</label>
+                </div>
+
+            </div>
+
+        </terra-scroll-bar> -->
+    </div>
+</div>

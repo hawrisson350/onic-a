@@ -1,0 +1,78 @@
+<!-- <div class="accordion-govco" id="accordionExampleOne" >
+  <div class="item-accordion-govco">
+    <h2 class="accordion-header" id="accordionPanels-exampleOne">
+      <span class="button-accordion-govco" type="button" data-bs-toggle="collapse" (click)="toggle()" >
+        <span class="text-button-accordion-govco" >{{title}}</span>
+        <button class="button-close  d-block mr-0 ml-auto" style="float: right;" [@rotatedStateClose]="!active? 'default': 'rotated'"></button>
+      </span>
+    </h2>
+      <div class="body-accordion-govco" [@smoothCollapse]="!activate? 'initial': 'final'" >
+        <p class="text-one-accordion-govco">
+          <ng-content></ng-content>
+        </p>
+    </div>
+  </div>
+  </div>
+   -->
+  <div class="accordion-govco" id="accordionExampleOne" >
+    <div class="item-accordion-govco">
+      <h2 class="accordion-header" id="accordionPanels-exampleOne">
+        <div class="button-accordion-govco" type="button" data-bs-toggle="collapse" (click)="toggle()" >
+          <span class="text-button-accordion-govco" >{{title}}</span>
+          <div class="button-close  d-block mr-0 ml-auto" style="float: right;" [@rotatedStateClose]="!active? 'default': 'rotated'"></div>
+        </div>
+      </h2>
+        <div class="body-accordion-govco" [@smoothCollapse]="!active? 'initial': 'final'" >
+          <p class="text-one-accordion-govco">
+            <ng-content></ng-content>
+          </p>
+      </div>
+    </div>
+    </div>
+  
+  <!-- <div class="accordion-govco" id="accordionExampleOne">
+    <div class="item-accordion-govco">
+      <h2 class="accordion-header" id="accordionPanels-exampleOne">
+        
+    </h2>
+    <div class="header">
+      <p>{{title}} <a (click)="toggle()" style="float: right;">Toggle</a></p>
+    </div>
+  
+    <div class="content" [@smoothCollapse]="!activate? 'initial': 'final'">
+      <ng-content></ng-content>  
+    </div>
+  
+  </div> -->
+
+
+  
+
+
+<!-- <div class="accordion-govco" id="accordionExampleOne" *ngIf="accordionStyle==='nonNumericClose'">
+  <div class="item-accordion-govco">
+    <h2 class="accordion-header" id="accordionPanels-exampleOne">
+      <button class="button-accordion-govco" type="button" data-bs-toggle="collapse" (click)="toggle()" >
+        <span class="text-button-accordion-govco" >{{accordionButtonTitle}}</span>
+        <button class="button-close d-block mr-0 ml-auto" style="float: right;" [@rotatedStateClose]="!showBody? 'default': 'rotated'"></button>
+      </button>
+    </h2>
+    <div  [@smoothCollapse]="!showBody? 'initial': 'final'" >
+      <div class="body-accordion-govco">
+        <p class="text-one-accordion-govco">
+          <ng-content  select="[NonNumericBodyAccordionClose]"></ng-content>
+        </p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <!-- <div class="header">
+    <p>{{title}} <a (click)="toggle()" style="float: right;">Toggle</a></p>
+  </div>
+
+  <div class="content" [hidden]="!active">
+    <ng-content></ng-content>  
+  </div>
+
+</div> -->
