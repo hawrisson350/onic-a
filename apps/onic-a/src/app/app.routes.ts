@@ -6,4 +6,6 @@ export const appRoutes: Route[] = [
         path: 'login',
         component: LoginFormularyComponent,
     }
+    ,
+    { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];
